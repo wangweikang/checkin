@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import {
-  AtCountdown, AtTimeline, AtButton, AtNoticebar,
+  AtCountdown, AtTimeline, AtButton, AtNoticebar, AtTabBar,
   AtDivider, AtForm, AtTextarea, AtCard,
 } from 'taro-ui'
 import './index.scss'
@@ -75,7 +75,7 @@ export default class Index extends Component {
           <AtDivider content='活动流程' fontColor='#2d8cf0' lineColor='#2d8cf0' />
         </View>
 
-        <View className='at-row at-row__justify--center' >
+        <View className='at-row at-row__justify--center' style='height:100px'>
           <AtTimeline
             items={[
               { title: '大会入场' },
@@ -110,7 +110,6 @@ export default class Index extends Component {
             </View>
           </AtForm>
         </AtCard>
-        
       </View >
     )
   }
