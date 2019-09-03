@@ -12,6 +12,7 @@ export default class Index extends Component {
     this.state = {
       current: 0,
       value: '',
+      userInfo:null
     }
   }
 
@@ -40,9 +41,25 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  componentWillMount() { }
+  componentWillMount() { 
+   
+  }
 
-  componentDidMount() { }
+  componentDidMount() {
+    Taro.getSetting({
+      success (res){
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          Taro.getUserInfo({
+            success: function(res) {
+              this.setState({userInfo:res.userInfo})
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
+   }
 
   componentWillUnmount() { }
 
@@ -55,7 +72,8 @@ export default class Index extends Component {
       <View className='index'>
         <View className='at-row at-row__justify--center'>
           <AtNoticebar marquee>
-            这是签到小程序,需开启定位权限.
+            {/* 这是签到小程序,需开启定位权限. */}
+            {this.state.userInfo}
           </AtNoticebar>
         </View>
         <View className='at-row at-row__justify--center' style='height:50px'>
