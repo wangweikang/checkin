@@ -25,18 +25,7 @@ class App extends Component {
       'pages/activit/index',
       'pages/about/index',
     ],
-    // <View className='tabbar'>
-    //       <AtTabBar
-    //         fixed
-    //         tabList={[
-    //           { title: '首页', iconType: 'home', text: 'new' },
-    //           { title: '活动', iconType: 'bell', dot: true },
-    //           { title: '关于', iconType: 'heart' }
-    //         ]}
-    //         onClick={this.handleClick.bind(this)}
-    //         current={this.state.current}
-    //       />
-    //     </View>
+
     tabBar: {
       list: [
         {
@@ -58,7 +47,8 @@ class App extends Component {
           text: '关于'
         },
       ]
-    }
+    },
+    
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
